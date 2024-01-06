@@ -17,13 +17,16 @@ jobs:
     - name: Install Dependencies
       run: npm install
       working-directory: ./functions
-      env:
-        ANOTHER_VAR: another_value
+    - name: Find and Replace REACT_APP_GOOGLE_DEV_KEY
+      uses: jacobtomlinson/gha-find-replace@v3
+      with:
+        find: "REACT="
+        replace: "REACT=${{ secrets.MY_VAR }}"
+        include: "**.env"
+
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
         args: deploy --only functions
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        MY_VAR: ${{ secrets.MY_VAR }}
-        ANOTHER_VAR: another_value
