@@ -24,3 +24,4 @@ jobs:
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         MY_VAR: ${{ secrets.MY_VAR }}
+        ANOTHER_VAR: another_value
