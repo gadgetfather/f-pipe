@@ -16,5 +16,5 @@ const logger = require("firebase-functions/logger");
 
 exports.helloWorld = onRequest((request, response) => {
   logger.info("Hello logs!", {structuredData: true});
-  response.send("Hello from Firebase 1!");
+  response.send("Hello from Firebase 12!");
 });
